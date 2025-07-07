@@ -11,6 +11,20 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Custom styles for section headers */
+        .section-header {
+            background-color: #e2e8f0; /* Tailwind gray-200 */
+            font-weight: bold;
+            color: #2d3748; /* Tailwind gray-800 */
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid #cbd5e0; /* Tailwind gray-300 */
+        }
+        /* Specific styling for cells with "Non applicable" or "Non spécifié" */
+        .na-cell {
+            color: #718096; /* Tailwind gray-500 */
+            font-style: italic;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-8">
@@ -19,7 +33,7 @@
             Comparatif des Onduleurs pour Système de Gestion de l'Énergie (EMS)
         </h1>
         <p class="text-gray-600 mb-8 text-center max-w-2xl mx-auto">
-            Ce tableau présente une comparaison détaillée des caractéristiques techniques et fonctionnelles de plusieurs onduleurs hybrides et PV, essentiels pour l'intégration dans un système de gestion de l'énergie.
+            Ce tableau présente une comparaison détaillée des caractéristiques techniques et fonctionnelles de plusieurs onduleurs hybrides et PV, essentiels pour l'intégration dans un système de gestion de l'énergie. Il est organisé par sections thématiques pour une meilleure lisibilité.
         </p>
 
         <div class="overflow-x-auto rounded-lg shadow-md">
@@ -33,6 +47,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Section: Généralités -->
+                    <tr>
+                        <td colspan="5" class="section-header">Généralités</td>
+                    </tr>
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Type d'Onduleur</th>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Onduleur/Chargeur Hybride Monophasé</td>
@@ -46,28 +64,166 @@
                         <td class="px-3 py-2 sm:px-6 sm:py-4">3600 W / 3600 VA</td>
                     </tr>
                     <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Facteur de Puissance (CosPhi)</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Inconnu, je n'ai pas trouvé de détail dans la documentation lue</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Réglable de 0,8 inductif à 0,8 capacitif (Implicite)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 / 0,8 inductif à 0,8 capacitif</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Courant de Charge Batterie Max.</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">70 A</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">140 A</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">30 A</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Courant de Transfert (AC)</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">50 A (Commutateur de transfert intégré)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">100 A (Commutateur de transfert intégré)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Relais réseau intégré (Courant de sortie max. 16A)</td>
-                    </tr>
-                    <tr class="bg-white border-b">
                         <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Rendement Max.</th>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">95%</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">96%</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">98,1%</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Courant de Transfert (AC)</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">50 A (Commutateur intégré)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">100 A (Commutateur intégré)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Relais réseau intégré (16 A max)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Entrées CA Principales</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 entrée CA (Réseau/Générateur)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">2 entrées CA (ex: Réseau + Générateur)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 entrée CA (Réseau)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Sorties CA</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">2 sorties (1 ininterrompue, 1 pour charges non essentielles)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">2 sorties (1 ininterrompue, 1 pour charges non essentielles)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 sortie CA principale, 1 sortie SPS (secours)</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Options de Mise à l'Échelle</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Parallèle (jusqu'à 6 unités), Triphasé (jusqu'à 6 séries de 3)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Parallèle (jusqu'à 6 unités), Triphasé (jusqu'à 6 séries de 3)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non mentionné pour la mise à l'échelle directe entre onduleurs</td>
+                    </tr>
+
+                    <!-- Section: Panneau Photovoltaïque -->
+                    <tr>
+                        <td colspan="5" class="section-header">Panneau Photovoltaïque</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Intensité Générée par le PV</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Calculable (Puissance PV / Tension PV)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Calculable (Puissance PV / Tension PV)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Jusqu'à 15 A (entrée), 30 A (court-circuit)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Intensité de l'Ensoleillement (Luminosité)</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible via l'onduleur seul</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible via l'onduleur seul</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible via l'onduleur seul</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Puissance Instantanée Produite par le PV</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Jusqu'à 5000 VA</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Jusqu'à 15000 VA</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Jusqu'à 6000 Wc (max. générateur PV)</td>
+                    </tr>
+
+                    <!-- Section: Batterie -->
+                    <tr>
+                        <td colspan="5" class="section-header">Batterie</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">SoC (État de Charge)</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (%)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (%)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (%)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">SoH (État de Santé)</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (pour Victron)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (pour Victron)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (pour SMA)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Tension Batterie</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">48 V (Nominal)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">48 V (Nominal)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">90 V à 500 V</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Puissance Échangée avec la Batterie</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (W)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (W)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Charge max. 10000 W / Décharge max. 3789 W</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Courant Échangé avec la Batterie</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (A)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (A)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Charge/Décharge max. 30 A</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Température Batterie</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (°C)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (°C)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (température interne onduleur uniquement)</td>
+                    </tr>
+
+                    <!-- Section: Réseau Local (AC) -->
+                    <tr>
+                        <td colspan="5" class="section-header">Réseau Local (AC)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Facteur de Puissance (CosPhi)</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Réglable de 0,8 inductif à 0,8 capacitif</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Réglable de 0,8 inductif à 0,8 capacitif</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 / 0,8 inductif à 0,8 capacitif</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Fréquence du Réseau</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">50 Hz / 60 Hz (réglable)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">50 Hz / 60 Hz (réglable)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">50 Hz / 60 Hz (plage 44 Hz à 66 Hz)</td>
+                    </tr>
+
+                    <!-- Section: Réseau Externe (Grid) -->
+                    <tr>
+                        <td colspan="5" class="section-header">Réseau Externe (Grid)</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Énergie Importée du Réseau</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (kWh)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (kWh)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Oui (Wh)</td>
+                    </tr>
+
+                    <!-- Section: EMS (Gestion Énergétique) -->
+                    <tr>
+                        <td colspan="5" class="section-header">EMS (Gestion Énergétique)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Puissance Instantanée Écrêtée</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Calculable (via limitation de puissance / injection)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Calculable (via limitation de puissance / injection)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Contrôlable via limitation de puissance active (W ou %)</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Énergie Écrêtée Depuis le Début</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (calculable à partir d'autres données)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (calculable à partir d'autres données)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4 na-cell">Non directement disponible (calculable à partir d'autres données)</td>
+                    </tr>
+
+                    <!-- Section: Autres Caractéristiques Clés -->
+                    <tr>
+                        <td colspan="5" class="section-header">Autres Caractéristiques Clés</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Fonctionnalités EMS Clés</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Gestion Autoconsommation, Fonction Back-up (transfert < 20 ms), Priorisation flux configurable</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">PowerControl, PowerAssist (aide du générateur), Fonction UPS (transfert < 20 ms), Gestion délestage</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Alimentation de secours Secure Power Supply, Optimisation ShadeFix</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Accès aux Données EMS (Protocole)</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Modbus TCP (via appareil GX), VE.Bus, API REST/JSON, MQTT</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Modbus TCP (via appareil GX), VE.Bus</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Modbus TCP (par défaut via port 502)</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Équipement Requis pour EMS/Modbus</th>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Nécessite un appareil Victron GX (Cerbo GX, Venus GX)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Nécessite un appareil Victron GX (Cerbo GX, Venus GX)</td>
+                        <td class="px-3 py-2 sm:px-6 sm:py-4">Peut fonctionner de manière autonome. Compatible avec SMA Data Manager M</td>
                     </tr>
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Interface Locale</th>
@@ -87,56 +243,25 @@
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Lithium-ion, Plomb-acide</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Lithium-ion (SMA Home Storage, autres batteries haute tension)</td>
                     </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Compatibilité BMS</th>
+                    <tr class="bg-white">
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap rounded-bl-lg">Compatibilité BMS</th>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Via port CAN ou VE.Can (selon batterie)</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Via ports d'entrée/sortie analogique/numérique (pour BMS Lithium-ion)</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Interface de batterie SMA, MODBUS RTU</td>
                     </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Fonctionnalités EMS Clés</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Gestion Autoconsommation, Fonction Back-up (transfert < 20 ms), Priorisation flux configurable</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">PowerControl, PowerAssist (aide du générateur), Fonction UPS (transfert < 20 ms), Gestion délestage</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Alimentation de secours Secure Power Supply, Optimisation ShadeFix</td>
+
+                    <!-- Section: Points Clés pour le Projet -->
+                    <tr>
+                        <td colspan="5" class="section-header">Points Clés pour le Projet</td>
                     </tr>
                     <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Entrées CA Principales</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 entrée CA (pour Réseau/Générateur)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">2 entrées CA (ex: Réseau + Générateur), commutation automatique</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 entrée CA (pour Réseau)</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Sorties CA</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">2 sorties (1 ininterrompue, 1 pour charges non essentielles)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">2 sorties (1 ininterrompue, 1 pour charges non essentielles)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">1 sortie CA principale, 1 sortie SPS (secours)</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Options de Mise à l'Échelle</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Parallèle (jusqu'à 6 unités), Triphasé (jusqu'à 6 séries de 3)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Parallèle (jusqu'à 6 unités), Triphasé (jusqu'à 6 séries de 3)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Non mentionné pour la mise à l'échelle directe entre onduleurs</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Accès aux Données EMS (Protocole)</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Modbus TCP (via appareil GX), VE.Bus, API REST/JSON, MQTT</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Modbus TCP (via appareil GX), VE.Bus</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Modbus TCP (par défaut via port 502)</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Équipement Requis pour EMS/Modbus</th>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Nécessite un appareil Victron GX (Cerbo GX, Venus GX)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Nécessite un appareil Victron GX (Cerbo GX, Venus GX)</td>
-                        <td class="px-3 py-2 sm:px-6 sm:py-4">Peut fonctionner de manière autonome. Compatible avec SMA Data Manager M</td>
-                    </tr>
-                    <tr class="bg-white">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap rounded-bl-lg">Points Forts (pour le projet)</th>
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap">Points Forts</th>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Écosystème logiciel très ouvert et complet pour EMS. Interfaces de communication variées. Forte compatibilité batterie. Idéal pour tests EMS de 3-5 kW.</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Similaire au MultiPlus-II mais avec double entrée CA et plus grande puissance. Grande évolutivité en parallèle/triphasé.</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Solution tout-en-un avec gestion de batterie intégrée. Fonctions intelligentes (ShadeFix, Secure Power Supply). Bonne autonomie logicielle.</td>
                     </tr>
                     <tr class="bg-white">
-                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap rounded-bl-lg">Points à Considérer (pour le projet)</th>
+                        <th scope="row" class="px-3 py-2 sm:px-6 sm:py-4 font-medium text-gray-900 whitespace-nowrap rounded-bl-lg">Points à Considérer</th>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Puissance nominale de 4 kW est peut-être limitée pour certains scénarios à 10 kW. Nécessite un appareil GX externe pour l'EMS complet.</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">Nécessite un appareil GX externe pour l'EMS complet. Plus grande puissance, potentiellement plus cher si non entièrement utilisée.</td>
                         <td class="px-3 py-2 sm:px-6 sm:py-4">La gestion de batterie est propre à SMA ou à des marques supportées. La mise à l'échelle semble moins "plug-and-play" que Victron.</td>
@@ -144,6 +269,35 @@
                 </tbody>
             </table>
         </div>
+
+        <section class="mt-10 p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">
+                Comprendre l'Énergie dans Votre Système : Le Bilan et le "Frein" Solaire
+            </h2>
+            <p class="text-gray-700 mb-4">
+                Pour bien saisir comment l'énergie fonctionne dans votre installation, imaginez votre maison comme un "compte en banque" pour l'électricité.
+            </p>
+            <p class="text-gray-700 mb-4">
+                **Le Bilan Énergétique Simple :**
+                <br>
+                L'énergie que vous utilisez pour vos appareils et pour recharger votre batterie provient de trois sources principales :
+                <br>
+                1.  De votre **batterie** (quand elle se vide, elle "donne" de l'énergie).
+                <br>
+                2.  De vos **panneaux solaires** (l'énergie qu'ils produisent directement).
+                <br>
+                3.  Du **réseau électrique** (l'électricité que vous "achetez" à la compagnie).
+                <br>
+                En clair : **Ce que vous avez (batterie qui se vide + solaire + réseau) = Ce que vous utilisez (vos appareils + batterie qui se charge).**
+                <br>
+                Votre onduleur est comme le "comptable" qui suit tous ces mouvements pour optimiser l'utilisation de l'énergie la moins chère et la plus écologique.
+            </p>
+            <p class="text-gray-700">
+                **L'Écrêtement Solaire (ou "Freiner le Solaire") :**
+                <br>
+                Parfois, vos panneaux solaires produisent énormément d'énergie (par exemple, en plein soleil). C'est comme si un robinet d'eau solaire coulait à flot. Si, à ce moment-là, vos appareils ne consomment pas toute cette énergie et que votre batterie est déjà pleine (votre "réservoir" est saturé), il y a un "trop-plein". L'écrêtement, c'est quand l'onduleur "freine" la production des panneaux solaires. Il leur dit : "Ralentissez un peu ! Le réservoir est plein et nous n'avons pas besoin de plus d'énergie pour le moment." Cela permet d'éviter de gaspiller l'énergie ou de renvoyer trop d'électricité sur le réseau si ce n'est pas autorisé ou si le réseau ne peut pas tout absorber.
+            </p>
+        </section>
 
         <p class="text-gray-600 mt-8 text-center max-w-2xl mx-auto">
             Ce tableau est conçu pour vous offrir une vue d'ensemble rapide et claire. Pour toute question ou pour approfondir un point spécifique, n'hésitez pas à me solliciter.
